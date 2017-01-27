@@ -112,11 +112,11 @@ abstract class AbstractController extends RestController
                     if ('default' == $formattingCode) {
                         $data[$field]['values']['default'] = $value;
                     } else {
-                        $localization = $localizationRepository->findOneBy(['formattingCode' => $formattingCode]);
+                        $localization = $localizationRepository->findOneBy([ 'formattingCode' => $formattingCode ]);
                         $data[$field]['values']['localizations'][$localization->getId()] = [
                             'value' => $value,
                             'use_fallback' => false,
-                            'fallback' => 'system'
+                            'fallback' => null
                         ];
                     }
                 }
